@@ -1,0 +1,18 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: micro-weather-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    data:
+      path: /data/**
+      serviceId: micro-weather-data
+    city:
+      path: /city/**
+      serviceId: micro-weather-city
+
