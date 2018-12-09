@@ -14,27 +14,27 @@ feign:
   client:
     config:
       feignName:
-        connnectTimeout: 50000
-        readTimeout: 50000
+        connnectTimeout: 50000 # 连接超时,默认10s
+        readTimeout: 50000 # 读取超时， 默认60s
   hystrix:
     enabled: true
     command:
       default:
         circuitBreaker:
-          requestVolumeThreshold: 1000
+          requestVolumeThreshold: 1000 # 熔断器失败的个数，默认20个，进入熔断器的请求达到1000时服务降级（之后的请求直接进入熔断器）
         fallback:
           isolation:
             semaphore:
-              maxConcurrentRequests: 10000
+              maxConcurrentRequests: 10000 # 执行回退逻辑的最大并发线程数，默认10个
         execution:
           timeout:
             enabled: true
           isolation:
             thread:
-              timeoutInMilliseconds: 60000
+              timeoutInMilliseconds: 60000 # 请求处理的超时时间
     threadpool:
       default:
-        coreSize: 10
+        coreSize: 10 # 核心线程池数量，默认10个
 
   # 配置httpClient线程池
   httpclient:
