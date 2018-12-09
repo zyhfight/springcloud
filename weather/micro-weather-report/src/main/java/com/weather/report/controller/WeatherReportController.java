@@ -38,6 +38,8 @@ public class WeatherReportController {
     @GetMapping("/cityId/{cityId}")
     public ModelAndView getReportByCityId(@PathVariable("cityId") String cityId, Model model){
 
+        logger.info("start get {} resulst", cityId);
+
         List<City> cityList = dataClient.listCity();
 
         Weather weather = weatherReportService.getDataByCity(cityId);

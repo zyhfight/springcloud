@@ -68,6 +68,18 @@
         </dependency>
 
 
+        <!-- 增加feign-httpclient -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <!-- 引入spring cloud的依赖 -->

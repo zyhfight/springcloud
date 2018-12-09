@@ -22,7 +22,7 @@ public class WeatherReportServiceImpl implements WeatherReportService {
     public Weather getDataByCity(String cityId) {
 
         WeatherResponse weatherResponse = dataClient.getDataByCityId(cityId);
-       return  weatherResponse.getData();
+        return  weatherResponse.getData();
 
     }
 }

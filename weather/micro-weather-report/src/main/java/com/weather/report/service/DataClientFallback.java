@@ -1,7 +1,10 @@
 package com.weather.report.service;
 
+import com.weather.report.controller.WeatherReportController;
 import com.weather.report.vo.City;
 import com.weather.report.vo.WeatherResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,13 +18,17 @@ import java.util.List;
 @Component
 public class DataClientFallback implements DataClient{
 
+    private static final Logger logger = LoggerFactory.getLogger(WeatherReportController.class);
+
+
     @Override
     public List<City> listCity() {
-        return new ArrayList<>();
+        logger.info("fall back list city");
+        return null;
     }
 
     @Override
     public WeatherResponse getDataByCityId(String cityId) {
-        return new WeatherResponse();
+        return null;
     }
 }

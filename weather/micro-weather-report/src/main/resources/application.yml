@@ -18,6 +18,31 @@ feign:
         readTimeout: 50000
   hystrix:
     enabled: true
+    command:
+      default:
+        circuitBreaker:
+          requestVolumeThreshold: 1000
+        fallback:
+          isolation:
+            semaphore:
+              maxConcurrentRequests: 10000
+        execution:
+          timeout:
+            enabled: true
+          isolation:
+            thread:
+              timeoutInMilliseconds: 60000
+    threadpool:
+      default:
+        coreSize: 10
+
+  # 配置httpClient线程池
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
+
 
 
 
