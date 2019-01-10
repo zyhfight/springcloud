@@ -24,11 +24,11 @@ public class DataClientFallback implements DataClient{
     @Override
     public List<City> listCity() {
         logger.info("fall back list city");
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
     public WeatherResponse getDataByCityId(String cityId) {
-        return null;
+        return new WeatherResponse();
     }
 }

@@ -6,6 +6,18 @@ spring:
     mode: LEGACYHTML5
   application:
     name: micro-weather-report
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    collector:
+      rabbitmq:
+        host: 
+        port: 
+        username: 
+        password: 
+        virtual-host: 
+        queue: 
 eureka:
   client:
     service-url:

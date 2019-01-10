@@ -3,6 +3,18 @@ server:
 spring:
   application:
     name: micro-weather-city
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    collector:
+      rabbitmq:
+        host: 
+        port: 5672
+        username: 
+        password: 
+        virtual-host: 
+        queue: 
 eureka:
   client:
     service-url:

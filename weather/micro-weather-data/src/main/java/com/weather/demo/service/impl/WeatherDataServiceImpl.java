@@ -50,7 +50,7 @@ public class WeatherDataServiceImpl implements WeatherDataService {
             logger.info("Redis has Data : {}", key);
             responseBody = operations.get(key);
         }else {
-            logger.info("Redis don't has data : {]", key);
+            logger.info("Redis don't has data : {}", key);
             throw new RuntimeException("Don't has data");
         }
 

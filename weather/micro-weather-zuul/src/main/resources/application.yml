@@ -3,6 +3,18 @@ server:
 spring:
   application:
     name: micro-weather-zuul
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    collector:
+      rabbitmq:
+        host: 
+        port: 
+        username: 
+        password: 
+        virtual-host: 
+        queue: 
 eureka:
   client:
     service-url:

@@ -1,0 +1,35 @@
+server:
+  port: 9411
+spring:
+  application:
+    #对应config server所获取的配置文件的{application}
+    name: zipkin-server
+  datasource:
+    url: 
+    username: 
+    password: 
+  sleuth:
+    enabled: false
+    sampler:
+      percentage: 1.0
+zipkin:
+  collector:
+    rabbitmq:
+      host: 
+      port: 
+      username: 
+      password: 
+      virtual-host: 
+      queue: 
+  storage:
+    type: mysql
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.int}
+

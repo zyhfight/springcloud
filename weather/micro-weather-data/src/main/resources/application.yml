@@ -3,6 +3,18 @@ server:
 spring:
   application:
     name: micro-weather-data
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    collector:
+      rabbitmq:
+        host: 
+        port: 
+        username: 
+        password: 
+        virtual-host: 
+        queue: 
     redis:
       database: 0
       host: 127.0.0.1
