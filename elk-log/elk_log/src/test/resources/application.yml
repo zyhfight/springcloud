@@ -1,0 +1,12 @@
+frame.log.kafka:
+  serviceId: logconfig
+  enabled: true
+  bootstrapServers: 
+  logTopic: log-topic-dev
+  charset: UTF-8
+  pattern: "[%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}] %d{ISO8601} %p  %c : %m%n"
+  isSync: false
+  
+  
+eureka.instance.instance-id: instance
+spring.application.name: name

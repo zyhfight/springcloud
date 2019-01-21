@@ -1,0 +1,12 @@
+
+##kafka及其zk资源地址
+kafka: 
+  monitor:
+    zk-nodes: 
+    brokers: 
+  business:
+    zk-nodes: ${kafka.monitor.zk-nodes}
+    brokers: ${kafka.monitor.brokers}
+  bus:
+    log: gateway-log-topic-dev
+    config: gateway-config-topic-dev

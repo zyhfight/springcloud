@@ -1,0 +1,15 @@
+#注：
+#被注释的配置表示非必输项，而且其后的值为默认值。
+#未注释的配置表示引入组件时的必填项。
+
+##--------------------------------ifc-frame-starter-log 日志
+frame.log.kafka:
+  enabled: true
+  bootstrapServers: ${kafka.monitor.brokers}
+  logTopic: ${kafka.bus.log}
+#  charset: UTF-8
+#  pattern: "[%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}] %d{ISO8601} %p  %c : %m%n"
+#  isSync: false
+
+
+

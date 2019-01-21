@@ -1,0 +1,24 @@
+##--------------------------------spring cloud sleuth
+spring.sleuth:
+  sampler.percentage: 0.5
+  rxjava.schedulers.hook.enabled: false
+  async.enabled: false
+  integration.enabled: false
+  zuul.enabled: true
+spring.cloud.stream.bindings.sleuth.destination: ${kafka.bus.sleuth}
+
+##--------------------------------spring cloud config bus
+spring.cloud.bus.destination: ${kafka.bus.config}
+
+
+##--------------------------------spring cloud streams
+spring.cloud.stream:
+  default.contentType: application/json
+  kafka.binder:
+    zk-nodes: ${kafka.business.zk-nodes}
+    brokers: ${kafka.business.brokers}
+    autoCreateTopics: true
+    autoAddPartitions: true
+    minPartitionCount: 8
+    replicationFactor: 2    
+#    requiredAcks: 1 #这个配置有毒，不认识all  

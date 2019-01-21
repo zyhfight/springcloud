@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="1800">
+	<Properties>
+		<Property name="COMMON_PATTERN">[%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}] %d{ISO8601} %p %c : %m%n</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<PatternLayout charset="UTF-8" pattern="${COMMON_PATTERN}" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Root level="INFO">
+			<AppenderRef ref="CONSOLE" />
+		</Root>
+		<!-- 必须设置kafka的日志不用Kafka Appender打印，否则会报循环的异常 -->
+		<logger name="org.apache.kafka" level="ERROR" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</logger>
+		<!-- 下面无用的日志太多，看需要可以不发送 -->
+		<logger name="org.apache.zookeeper" level="ERROR" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</logger>            
+	</Loggers>
+
+</Configuration>
