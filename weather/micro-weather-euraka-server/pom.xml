@@ -54,6 +54,50 @@
         </dependencies>
     </dependencyManagement>
 
+	
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<spring.profiles.active>local</spring.profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<spring.profiles.active>dev</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>st</id>
+			<properties>
+				<spring.profiles.active>st</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<properties>
+				<spring.profiles.active>uat</spring.profiles.active>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>prd</id>
+			<properties>
+				<spring.profiles.active>prd</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>pt</id>
+			<properties>
+				<spring.profiles.active>pt</spring.profiles.active>
+			</properties>
+		</profile>
+	</profiles>
+	
     <build>
         <plugins>
             <plugin>
@@ -61,6 +105,29 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<!--<resources>
+			<resource>
+				<directory>${project.basedir}/lib</directory>
+				<targetPath>BOOT-INF/lib/</targetPath>
+				<includes>
+					<include>**/*.jar</include>
+				</includes>
+			</resource>
+			<!-- 若使用mvn打包，则打开此注释-->
+			<!--<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<targetPath>BOOT-INF/classes/</targetPath>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+		</resources> -->
     </build>
 
 
